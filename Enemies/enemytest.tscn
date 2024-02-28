@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cagebrk2mka0i"]
+
+[ext_resource type="Script" path="res://Enemies/enemy1.gd" id="1_6mi48"]
+[ext_resource type="Texture2D" uid="uid://ly6fx7ob5we4" path="res://Assets/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_gg11j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8egx1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ryhc6"]
+radius = 5.47085
+
+[node name="Enemy1" type="CharacterBody2D"]
+script = ExtResource("1_6mi48")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2944, 1.20855)
+texture = ExtResource("1_gg11j")
+hframes = 4
+vframes = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_8egx1")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AnimatedSprite2D"]
+position = Vector2(-1.54512, 0.827438)
+shape = SubResource("CircleShape2D_ryhc6")
